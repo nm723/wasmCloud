@@ -17,7 +17,7 @@ mod bindings {
             "wasi:keyvalue/store@0.2.0-draft": generate,
             "wasi:logging/logging": generate,
             "wasi:random/random@0.2.1": ::wasi::random::random,
-            "wasmcloud:bus/lattice@1.0.0": generate,
+            "wasmcloud:bus/lattice@2.0.0": generate,
             "wasmcloud:messaging/consumer@0.2.0": generate,
             "wasmcloud:messaging/types@0.2.0": generate,
         }
@@ -61,7 +61,7 @@ mod test {
             let _ = wasi::config::runtime::get("foo");
             let _ = wasi::config::runtime::get_all();
 
-            wasmcloud::bus::lattice::set_link_name(
+            let _ = wasmcloud::bus::lattice::set_link_name(
                 "default",
                 vec![
                     wasmcloud::bus::lattice::CallTargetInterface::new(
